@@ -17,12 +17,7 @@
       --bg-light: #FAFAF7;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Poppins', sans-serif;
@@ -31,110 +26,86 @@
       overflow-x: hidden;
     }
 
-    /* ---------- HEADER ---------- */
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(250, 250, 247, 0.9);
+      background: rgba(250,250,247,0.92);
       backdrop-filter: blur(8px);
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       padding: 12px 40px;
       z-index: 1000;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo img {
-      height: 52px;
-    }
+    .logo img { height: 52px; }
 
     nav a {
       margin-left: 25px;
       text-decoration: none;
       font-weight: 500;
       color: var(--green-dark);
-      position: relative;
     }
 
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background: var(--green-light);
-      transition: 0.3s;
-    }
+    nav a:hover { color: var(--green-light); }
 
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    /* ---------- HERO SECTION ---------- */
-    .hero {
+    /* ---------- PAGE SECTIONS ---------- */
+    .page {
       min-height: 100vh;
+      padding: 120px 20px 80px;
+      display: none;
+    }
+
+    .page.active { display: block; }
+
+    /* ---------- HOME ---------- */
+    .home {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 120px 20px 60px;
-      background: linear-gradient(135deg, var(--beige), #ffffff);
+      background: linear-gradient(135deg, var(--beige), #fff);
     }
 
-    .hero-container {
-      max-width: 1200px;
+    .home-content {
+      max-width: 1100px;
       width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      align-items: center;
       gap: 50px;
+      align-items: center;
     }
 
-    .hero-text h1 {
+    .home-text h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
       color: var(--green-dark);
       margin-bottom: 15px;
     }
 
-    .hero-text p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      margin-bottom: 30px;
-    }
+    .home-text p { font-size: 1.1rem; line-height: 1.7; }
 
-    .cta-btn {
+    .home-buttons button {
+      margin-top: 30px;
+      margin-right: 15px;
       padding: 14px 34px;
-      background: var(--green-dark);
-      color: white;
       border-radius: 40px;
       border: none;
-      font-size: 1rem;
       cursor: pointer;
-      transition: 0.3s ease;
+      font-size: 1rem;
+      background: var(--green-dark);
+      color: white;
+      transition: 0.3s;
     }
 
-    .cta-btn:hover {
+    .home-buttons button:hover {
       background: var(--green-light);
       transform: translateY(-2px);
     }
 
-    /* ---------- PRODUCT SLIDER ---------- */
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .product-frame {
+    /* ---------- IMAGE LOOP ---------- */
+    .image-frame {
       width: 320px;
       height: 320px;
       border-radius: 50%;
@@ -143,23 +114,20 @@
       animation: float 6s ease-in-out infinite;
     }
 
-    .product-frame img {
+    .image-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: opacity 0.8s ease;
     }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
     }
 
-    /* ---------- CATEGORIES ---------- */
-    section {
-      padding: 80px 20px;
-    }
-
-    .section-title {
+    /* ---------- SHOP ---------- */
+    .shop h2, .about h2 {
       text-align: center;
       font-family: 'Playfair Display', serif;
       font-size: 2.4rem;
@@ -167,149 +135,104 @@
       margin-bottom: 50px;
     }
 
-    .categories {
+    .products {
       max-width: 1200px;
       margin: auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
       gap: 30px;
     }
 
     .card {
       background: white;
-      border-radius: 22px;
       padding: 25px;
+      border-radius: 22px;
       box-shadow: 0 15px 40px rgba(0,0,0,0.08);
       transition: 0.4s;
     }
 
-    .card:hover {
-      transform: translateY(-10px);
-    }
+    .card:hover { transform: translateY(-10px); }
 
-    .card h3 {
-      color: var(--green-dark);
-      margin-bottom: 10px;
-    }
+    .price { font-weight: 600; margin: 15px 0; }
 
-    .card p {
-      font-size: 0.95rem;
-      margin-bottom: 15px;
-    }
-
-    .price {
-      font-weight: 600;
-      margin-bottom: 15px;
-    }
-
-    .buy-btn {
+    .buy {
       display: inline-block;
-      text-decoration: none;
       padding: 10px 22px;
       background: var(--green-light);
       color: white;
       border-radius: 25px;
-      transition: 0.3s;
+      text-decoration: none;
     }
 
-    .buy-btn:hover {
-      background: var(--green-dark);
-    }
+    .buy:hover { background: var(--green-dark); }
 
     /* ---------- ABOUT ---------- */
-    .about {
+    .about-content {
       max-width: 900px;
       margin: auto;
       text-align: center;
       line-height: 1.8;
     }
 
-    /* ---------- FOOTER ---------- */
     footer {
       background: var(--green-dark);
       color: white;
       text-align: center;
       padding: 25px;
-      margin-top: 60px;
     }
 
-    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 900px) {
-      .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
+      .home-content { grid-template-columns: 1fr; text-align: center; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">
-    <img src="1000004451.png" alt="PureVeda Farms Logo">
-  </div>
+  <div class="logo"><img src="1000004451.png" alt="PureVeda Farms"></div>
   <nav>
-    <a href="#home">Home</a>
-    <a href="#shop">Shop</a>
-    <a href="#about">About</a>
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('shop')">Shop</a>
+    <a onclick="showPage('about')">About</a>
   </nav>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-container">
-    <div class="hero-text">
+<!-- HOME PAGE -->
+<section class="page home active" id="home">
+  <div class="home-content">
+    <div class="home-text">
       <h1>PureVeda Farms</h1>
-      <p><strong>From Earth. Purely to You.</strong><br>Experience the essence of nature through ethically sourced, chemical‑free organic products.</p>
-      <button class="cta-btn">Explore Organic Products</button>
-    </div>
-    <div class="hero-visual">
-      <div class="product-frame">
-        <img id="sliderImage" src="https://images.unsplash.com/photo-1602524819204-ec1dcdd6f3ae" alt="Organic Product">
+      <p><strong>From Earth. Purely to You.</strong><br>
+      Pure organic products grown naturally to nourish your family and protect nature.</p>
+      <div class="home-buttons">
+        <button onclick="showPage('shop')">Shop Organic</button>
+        <button onclick="showPage('about')">About Us</button>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- SHOP -->
-<section id="shop">
-  <h2 class="section-title">Our Organic Categories</h2>
-  <div class="categories">
-    <div class="card">
-      <h3>Organic Wheat</h3>
-      <p>Naturally grown, rich in fiber and nutrients.</p>
-      <div class="price">₹55 / kg</div>
-      <a class="buy-btn" href="#">Buy on Amazon</a>
-    </div>
-    <div class="card">
-      <h3>Fresh Vegetables</h3>
-      <p>Farm fresh vegetables grown without chemicals.</p>
-      <div class="price">From ₹40 / kg</div>
-      <a class="buy-btn" href="#">Buy on Amazon</a>
-    </div>
-    <div class="card">
-      <h3>Organic Fruits</h3>
-      <p>Juicy, seasonal fruits full of natural goodness.</p>
-      <div class="price">From ₹60 / kg</div>
-      <a class="buy-btn" href="#">Buy on Amazon</a>
-    </div>
-    <div class="card">
-      <h3>Personal Care</h3>
-      <p>Ayurvedic and herbal personal care products.</p>
-      <div class="price">Starting ₹120</div>
-      <a class="buy-btn" href="#">Buy on Amazon</a>
+    <div class="image-frame">
+      <img id="loopImage" src="https://images.unsplash.com/photo-1602524819204-ec1dcdd6f3ae" alt="Organic">
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <h2 class="section-title">About PureVeda Farms</h2>
-  <div class="about">
+<!-- SHOP PAGE -->
+<section class="page shop" id="shop">
+  <h2>Shop Organic Products</h2>
+  <div class="products">
+    <div class="card"><h3>Organic Wheat</h3><p>Chemical-free whole wheat.</p><div class="price">₹55 / kg</div><a class="buy" href="#">Buy on Amazon</a></div>
+    <div class="card"><h3>Fresh Vegetables</h3><p>Farm fresh vegetables.</p><div class="price">From ₹40 / kg</div><a class="buy" href="#">Buy on Amazon</a></div>
+    <div class="card"><h3>Organic Fruits</h3><p>Seasonal & naturally ripened.</p><div class="price">From ₹60 / kg</div><a class="buy" href="#">Buy on Amazon</a></div>
+    <div class="card"><h3>Personal Care</h3><p>Herbal & Ayurvedic care.</p><div class="price">From ₹120</div><a class="buy" href="#">Buy on Amazon</a></div>
+  </div>
+</section>
+
+<!-- ABOUT PAGE -->
+<section class="page about" id="about">
+  <h2>About PureVeda Farms</h2>
+  <div class="about-content">
     <p>
-      PureVeda Farms was born with a single vision — to reconnect people with the purity of nature.
-      We work closely with ethical farmers and producers to deliver organic food and lifestyle products
-      that are safe, healthy, and sustainable.
+      PureVeda Farms is dedicated to promoting chemical-free living. We partner with ethical farmers
+      to deliver organic cereals, fruits, vegetables, and wellness products.
     </p>
     <p>
       <strong>Email:</strong> contact@purevedafarms.com<br>
@@ -318,31 +241,39 @@
   </div>
 </section>
 
-<footer>
-  © 2026 PureVeda Farms • Eat Clean. Live Green.
-</footer>
+<footer>© 2026 PureVeda Farms • Eat Clean. Live Green.</footer>
 
 <script>
+  function showPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(page).classList.add('active');
+    window.scrollTo(0,0);
+  }
+
   const images = [
+    // Cereals
     "https://images.unsplash.com/photo-1602524819204-ec1dcdd6f3ae",
-    "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce",
-    "https://images.unsplash.com/photo-1582515073490-dc798b83add3",
-    "https://images.unsplash.com/photo-1606787366850-de6330128bfc"
+    "https://images.unsplash.com/photo-1592924357228-91a4daadcfea",
+    // Vegetables
+    "https://images.unsplash.com/photo-1542838132-92c53300491e",
+    "https://images.unsplash.com/photo-1506806732259-39c2d0268443",
+    // Fruits
+    "https://images.unsplash.com/photo-1574226516831-e1dff420e43e",
+    "https://images.unsplash.com/photo-1587049352847-ffdbf39f7d25"
   ];
 
-  let index = 0;
-  const sliderImage = document.getElementById('sliderImage');
+  let i = 0;
+  const img = document.getElementById('loopImage');
 
   setInterval(() => {
-    index = (index + 1) % images.length;
-    sliderImage.style.opacity = 0;
+    img.style.opacity = 0;
     setTimeout(() => {
-      sliderImage.src = images[index];
-      sliderImage.style.opacity = 1;
-    }, 500);
-  }, 3500);
+      i = (i + 1) % images.length;
+      img.src = images[i];
+      img.style.opacity = 1;
+    }, 800);
+  }, 4000);
 </script>
 
 </body>
 </html>
-
