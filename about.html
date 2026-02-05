@@ -1,26 +1,76 @@
-<!-- ===================== about.html ===================== -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About | PureVeda Farms</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-body{font-family:Poppins;background:#fafaf7;margin:0;text-align:center}
-header,footer{background:#2f5d3a;color:#fff;padding:25px}
-section{max-width:900px;margin:80px auto;padding:0 20px;line-height:1.8}
+body{
+  font-family:Poppins;
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  background:linear-gradient(135deg,#f3e9d2,#fafaf7);
+}
+
+header,footer{
+  background:#2f5d3a;
+  color:#fff;
+  text-align:center;
+  padding:30px;
+}
+
+main{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.content{
+  max-width:900px;
+  padding:0 20px;
+  text-align:center;
+  line-height:1.9;
+}
+
+.content h2{
+  font-family:'Playfair Display',serif;
+  color:#2f5d3a;
+  margin-bottom:15px;
+}
+.content p{margin-bottom:20px}
+a{color:#fff;text-decoration:none}
 </style>
 </head>
+
 <body>
 <header>
-  <h2>About PureVeda Farms</h2>
-  <a href="index.html" style="color:#fff">← Back to Home</a>
+  <h1>About PureVeda Farms</h1>
+  <a href="index.html">← Back to Home</a>
 </header>
-<section>
-  <p>PureVeda Farms is built on trust, sustainability, and purity. We connect ethical farmers with conscious consumers.</p>
-  <p><strong>Email:</strong> contact@purevedafarms.com<br><strong>Phone:</strong> +91 XXXXXXXXXX</p>
-</section>
+
+<main>
+  <div class="content">
+    <h2>Our Story</h2>
+    <p>PureVeda Farms was born from a belief that food should be pure, honest, and close to nature.</p>
+
+    <h2>Our Mission</h2>
+    <p>To make chemical-free food and personal care products accessible to every home.</p>
+
+    <h2>Why Choose Us?</h2>
+    <p>✔ Direct farmer sourcing<br>✔ No chemicals<br>✔ Sustainable farming</p>
+
+    <h2>Contact</h2>
+    <p><strong>Email:</strong> contact@purevedafarms.com<br>
+       <strong>Phone:</strong> +91 XXXXXXXXXX</p>
+  </div>
+</main>
+
 <footer>Eat Clean. Live Green.</footer>
 </body>
 </html>
-
