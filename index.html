@@ -1,279 +1,87 @@
+<!-- ===================== index.html (HOME) ===================== -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PureVeda Farms | Organic Living</title>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
   <style>
-    :root {
-      --green-dark: #2F5D3A;
-      --green-light: #7BC47F;
-      --beige: #F3E9D2;
-      --text-dark: #2B2B2B;
-      --bg-light: #FAFAF7;
+    :root{
+      --green:#2F5D3A; --light:#7BC47F; --beige:#F3E9D2; --bg:#FAFAF7;
     }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Poppins,sans-serif;background:var(--bg);color:#2b2b2b}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* HEADER */
+    header{position:fixed;top:0;width:100%;background:rgba(250,250,247,.95);backdrop-filter:blur(8px);display:flex;justify-content:space-between;align-items:center;padding:12px 40px;box-shadow:0 4px 20px rgba(0,0,0,.05)}
+    nav{display:flex;gap:30px}
+    nav a{text-decoration:none;color:var(--green);font-weight:500}
+    nav a:hover{color:var(--light)}
+    .logo img{height:50px}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      overflow-x: hidden;
-    }
+    /* HERO */
+    .hero{min-height:100vh;padding:130px 20px 80px;background:linear-gradient(135deg,var(--beige),#fff);display:flex;align-items:center;justify-content:center}
+    .hero-wrap{max-width:1100px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+    h1{font-family:'Playfair Display',serif;font-size:3rem;color:var(--green)}
+    .tagline{margin:15px 0;font-size:1.15rem}
+    .trust{margin-top:20px;font-size:.95rem;opacity:.85}
+    .btns{margin-top:30px}
+    .btns a{display:inline-block;margin-right:15px;padding:14px 34px;border-radius:40px;background:var(--green);color:#fff;text-decoration:none}
+    .btns a:hover{background:var(--light)}
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(250,250,247,0.92);
-      backdrop-filter: blur(8px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 40px;
-      z-index: 1000;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    }
+    /* IMAGE LOOP */
+    .frame{width:320px;height:320px;border-radius:50%;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.15)}
+    .frame img{width:100%;height:100%;object-fit:cover;transition:opacity .8s}
 
-    .logo img { height: 52px; }
+    footer{background:var(--green);color:#fff;text-align:center;padding:25px}
+    footer div{line-height:1.6}
 
-    nav a {
-      margin-left: 25px;
-      text-decoration: none;
-      font-weight: 500;
-      color: var(--green-dark);
-    }
-
-    nav a:hover { color: var(--green-light); }
-
-    /* ---------- PAGE SECTIONS ---------- */
-    .page {
-      min-height: 100vh;
-      padding: 120px 20px 80px;
-      display: none;
-    }
-
-    .page.active { display: block; }
-
-    /* ---------- HOME ---------- */
-    .home {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--beige), #fff);
-    }
-
-    .home-content {
-      max-width: 1100px;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .home-text h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 4vw, 3.4rem);
-      color: var(--green-dark);
-      margin-bottom: 15px;
-    }
-
-    .home-text p { font-size: 1.1rem; line-height: 1.7; }
-
-    .home-buttons button {
-      margin-top: 30px;
-      margin-right: 15px;
-      padding: 14px 34px;
-      border-radius: 40px;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      background: var(--green-dark);
-      color: white;
-      transition: 0.3s;
-    }
-
-    .home-buttons button:hover {
-      background: var(--green-light);
-      transform: translateY(-2px);
-    }
-
-    /* ---------- IMAGE LOOP ---------- */
-    .image-frame {
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      overflow: hidden;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .image-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.8s ease;
-    }
-
-    @keyframes float {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-14px); }
-    }
-
-    /* ---------- SHOP ---------- */
-    .shop h2, .about h2 {
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      color: var(--green-dark);
-      margin-bottom: 50px;
-    }
-
-    .products {
-      max-width: 1200px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-      gap: 30px;
-    }
-
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 22px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-      transition: 0.4s;
-    }
-
-    .card:hover { transform: translateY(-10px); }
-
-    .price { font-weight: 600; margin: 15px 0; }
-
-    .buy {
-      display: inline-block;
-      padding: 10px 22px;
-      background: var(--green-light);
-      color: white;
-      border-radius: 25px;
-      text-decoration: none;
-    }
-
-    .buy:hover { background: var(--green-dark); }
-
-    /* ---------- ABOUT ---------- */
-    .about-content {
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-      line-height: 1.8;
-    }
-
-    footer {
-      background: var(--green-dark);
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
-
-    @media (max-width: 900px) {
-      .home-content { grid-template-columns: 1fr; text-align: center; }
-    }
+    @media(max-width:900px){.hero-wrap{grid-template-columns:1fr;text-align:center}}
   </style>
 </head>
 <body>
-
 <header>
-  <div class="logo"><img src="1000004451.png" alt="PureVeda Farms"></div>
+  <div class="logo"><img src="1000004451.png"></div>
   <nav>
-    <a onclick="showPage('home')">Home</a>
-    <a onclick="showPage('shop')">Shop</a>
-    <a onclick="showPage('about')">About</a>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="about.html">About Us</a>
   </nav>
 </header>
 
-<!-- HOME PAGE -->
-<section class="page home active" id="home">
-  <div class="home-content">
-    <div class="home-text">
+<section class="hero">
+  <div class="hero-wrap">
+    <div>
       <h1>PureVeda Farms</h1>
-      <p><strong>From Earth. Purely to You.</strong><br>
-      Pure organic products grown naturally to nourish your family and protect nature.</p>
-      <div class="home-buttons">
-        <button onclick="showPage('shop')">Shop Organic</button>
-        <button onclick="showPage('about')">About Us</button>
+      <p class="tagline"><strong>From Earth. Purely to You.</strong></p>
+      <p>Experience authentic organic food grown naturally, free from chemicals and full of life.</p>
+      <p class="trust">✔ Trusted Farmers &nbsp; ✔ 100% Natural &nbsp; ✔ No Chemicals</p>
+      <div class="btns">
+        <a href="shop.html">Shop Organic</a>
       </div>
     </div>
-    <div class="image-frame">
-      <img id="loopImage" src="https://images.unsplash.com/photo-1602524819204-ec1dcdd6f3ae" alt="Organic">
-    </div>
+    <div class="frame"><img id="homeImg" src="https://images.unsplash.com/photo-1602524819204-ec1dcdd6f3ae"></div>
   </div>
 </section>
 
-<!-- SHOP PAGE -->
-<section class="page shop" id="shop">
-  <h2>Shop Organic Products</h2>
-  <div class="products">
-    <div class="card"><h3>Organic Wheat</h3><p>Chemical-free whole wheat.</p><div class="price">₹55 / kg</div><a class="buy" href="#">Buy on Amazon</a></div>
-    <div class="card"><h3>Fresh Vegetables</h3><p>Farm fresh vegetables.</p><div class="price">From ₹40 / kg</div><a class="buy" href="#">Buy on Amazon</a></div>
-    <div class="card"><h3>Organic Fruits</h3><p>Seasonal & naturally ripened.</p><div class="price">From ₹60 / kg</div><a class="buy" href="#">Buy on Amazon</a></div>
-    <div class="card"><h3>Personal Care</h3><p>Herbal & Ayurvedic care.</p><div class="price">From ₹120</div><a class="buy" href="#">Buy on Amazon</a></div>
-  </div>
-</section>
-
-<!-- ABOUT PAGE -->
-<section class="page about" id="about">
-  <h2>About PureVeda Farms</h2>
-  <div class="about-content">
-    <p>
-      PureVeda Farms is dedicated to promoting chemical-free living. We partner with ethical farmers
-      to deliver organic cereals, fruits, vegetables, and wellness products.
-    </p>
-    <p>
-      <strong>Email:</strong> contact@purevedafarms.com<br>
-      <strong>Phone:</strong> +91 XXXXXXXXXX
-    </p>
-  </div>
-</section>
-
-<footer>© 2026 PureVeda Farms • Eat Clean. Live Green.</footer>
+<footer>
+  <div>© 2026 PureVeda Farms</div>
+  <div>Eat Clean. Live Green.</div>
+</footer>
 
 <script>
-  function showPage(page) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById(page).classList.add('active');
-    window.scrollTo(0,0);
-  }
-
-  const images = [
-    // Cereals
-    "https://images.unsplash.com/photo-1602524819204-ec1dcdd6f3ae",
-    "https://images.unsplash.com/photo-1592924357228-91a4daadcfea",
-    // Vegetables
-    "https://images.unsplash.com/photo-1542838132-92c53300491e",
-    "https://images.unsplash.com/photo-1506806732259-39c2d0268443",
-    // Fruits
-    "https://images.unsplash.com/photo-1574226516831-e1dff420e43e",
-    "https://images.unsplash.com/photo-1587049352847-ffdbf39f7d25"
-  ];
-
-  let i = 0;
-  const img = document.getElementById('loopImage');
-
-  setInterval(() => {
-    img.style.opacity = 0;
-    setTimeout(() => {
-      i = (i + 1) % images.length;
-      img.src = images[i];
-      img.style.opacity = 1;
-    }, 800);
-  }, 4000);
+const imgs=[
+"https://images.unsplash.com/photo-1602524819204-ec1dcdd6f3ae",
+"https://images.unsplash.com/photo-1592924357228-91a4daadcfea",
+"https://images.unsplash.com/photo-1542838132-92c53300491e",
+"https://images.unsplash.com/photo-1506806732259-39c2d0268443",
+"https://images.unsplash.com/photo-1574226516831-e1dff420e43e",
+"https://images.unsplash.com/photo-1587049352847-ffdbf39f7d25"
+];
+let i=0,img=document.getElementById('homeImg');
+setInterval(()=>{img.style.opacity=0;setTimeout(()=>{i=(i+1)%imgs.length;img.src=imgs[i];img.style.opacity=1},800)},4000);
 </script>
-
 </body>
 </html>
+
